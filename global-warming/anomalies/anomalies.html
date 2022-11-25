@@ -1,0 +1,56 @@
+
+<script src="https://unpkg.com/rough-viz@1.0.6"></script>
+
+
+<!--you can name each id whatever you want -->
+<div id="viz0" style="cursor:none"></div>
+<div id="viz1" style="cursor:none"></div>
+
+<script>
+
+// create Bar chart from csv file, using default options
+new roughViz.Bar({
+    element: '#viz0', // container selection
+    data: 'https://etejadag.github.io/global-warming/anomalies/pos.csv',
+    labels: 'Year',
+    values: 'Value',
+    color: 'coral',
+    highlight: 'darkred',
+    width: '1800' ,
+    tooltipFontSize: '2rem',
+    axisFontSize: '2rem',
+    labelFontSize: '2rem',
+});
+
+// create Bar chart from csv file, using default options
+new roughViz.Bar({
+    element: '#viz1', // container selection
+    data: 'https://etejadag.github.io/global-warming/anomalies/neg1.csv',
+    labels: 'Year',
+    highlight: 'darkblue',
+    values: 'Value',
+    width: '1800' ,
+    tooltipFontSize: '2rem',
+    axisFontSize: '2rem',
+    labelFontSize: '2rem',
+});
+
+// create Donut chart using defined data & customize plot options
+//new roughViz.Donut(
+//  {
+//    element: '#viz1',
+//    data: {
+//      labels: ['North', 'South', 'East', 'West'],
+//      values: [10, 5, 8, 3]
+//    },
+//    title: "Regions",
+ //   width: window.innerWidth / 4,
+ //   roughness: 8,
+ //   colors: ['red', 'orange', 'blue', 'skyblue'],
+ //   stroke: 'black',
+ //   strokeWidth: 3,
+ //   fillStyle: 'cross-hatch',
+ //   fillWeight: 3.5,
+ // }
+//);
+</script>
