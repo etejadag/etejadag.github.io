@@ -1,7 +1,6 @@
 
 <script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>
 
-
 <!--you can name each id whatever you want -->
 <div id="viz0"></div>
 <div id="viz1"></div>
@@ -16,22 +15,10 @@ new roughViz.Bar({
     values: 'Value',
     color: 'coral',
     highlight: 'darkred',
-    width: '1800' ,
+    width: window.innerWidth * 0.90 ,
     tooltipFontSize: '2rem',
-    axisFontSize: '2rem',
-    labelFontSize: '2rem',
-});
-
-// create Bar chart from csv file, using default options
-new roughViz.Bar({
-    element: '#viz1', // container selection
-    data: 'https://etejadag.github.io/global-warming/anomalies/neg.csv',
-    labels: 'Year',
-    highlight: 'darkblue',
-    values: 'Value',
-    width: '1800' ,
-    tooltipFontSize: '2rem',
-    axisFontSize: '2rem',
+    xAxisFontSize: '0rem',
+    yAxisFontSize: '2rem',
     labelFontSize: '2rem',
 });
 
