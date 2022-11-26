@@ -1,12 +1,33 @@
+<html>
+<head>
+    <script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>
+    <style>
+        .title {
+            font-size: xx-large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        };
+        .graphs {
+            text-align: center;
+            width: 100%;
+        }
+        .anomalies {
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
+    </style>
+</head>
 
-<script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>
-
-<!--you can name each id whatever you want -->
-<div id="viz0"></div>
-<div id="viz1"></div>
+<home>
+    <div class="title">Yearly surface temperature compared to the 20th-century average</div>
+    <div class="graphs">
+        <div id="viz0" class="anomalies"></div>
+    </div>
+    <!-- <div id="viz1"></div>-->
+</home>
 
 <script>
-
 // create Bar chart from csv file, using default options
 new roughViz.Bar({
     element: '#viz0', // container selection
@@ -41,3 +62,4 @@ new roughViz.Bar({
  // }
 //);
 </script>
+</html>
