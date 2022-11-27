@@ -1,6 +1,7 @@
 <html>
 <head>
-    <script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>
+    <!--<script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>-->
+    <script src="../roughviz.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Gaegu' rel='stylesheet'>
     <style>
         .title {
@@ -9,64 +10,72 @@
             text-align: center;
             margin: 20px 0 20px 0;
         }
-        .graphs {
-            vertical-align: top;
-            text-align: center;
-            width: 70%;
-            display: inline-block;
-        }
-        .anomalies {
-            width: 100%;
-        }
-        .explanation {
-            padding: 20px;
-            vertical-align: top;
-            font-size: x-large;
-            font-family: 'Gaegu';
-            display: inline-block;
-            width: 20%;
-        }
         .container {
             margin-left: auto;
             margin-right: auto;
             width: 90%;
         }
+        .anomalies {
+            width: 100%;
+            cursor: inherit;
+        }
+        .graphs {
+            vertical-align: top;
+            text-align: center;
+            width: 100%;
+            display: inline-block;
+        }
+        .explanation {
+            column-count: 2;
+            padding: 20px;
+            vertical-align: top;
+            font-size: x-large;
+            font-family: 'Gaegu';
+            display: inline-block;
+            width: 100%;
+            column-gap: 20px;
+        }
+        .explanation > p {
+            margin: 0 0 1em 0;
+        }
+        .explanation > p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
 <home>
-    <div class="title">Yearly surface temperature compared to the 20th-century average</div>
+    <div class="title">Yearly surface temperature compared to the 20th-century average (in Celsius)</div>
     <div class="container">
         <span class="graphs">
             <div id="viz0" class="anomalies"></div>
         </span>
         <span class="explanation">
-            <p>However, the concept of a global average temperature is convenient for detecting and tracking changes in Earth's 
-            energy budget—how much sunlight Earth absorbs minus how much it radiates to space as heat—over time.</p>
-            
-            <p>To calculate a global average temperature, scientists begin with temperature measurements taken at locations 
-            around the globe. Because their goal is to track changes in temperature, measurements are converted from absolute
-            temperature readings to temperature anomalies—the difference between the observed temperature and the long-term 
-            average temperature for each location and date. Multiple independent research groups across the world perform their
-            own analysis of the surface temperature data, and they all show a similar upward trend.</p>
+            <p> Global average temperature is convenient for detecting and tracking changes in Earth's energy budget—how much sunlight
+                Earth absorbs minus how much it radiates to space as heat—over time. It is calculated based on measurements taken at
+                different locatons around the globe. This data is then expressed as anomalies: the difference between the temperature 
+                observed and the long-term average for each location. Multiple research groups make these measurements and all of them
+                show similar trends. </p>
         </span>
     </div>
+    <div class="title">Same data but comparing land and ocean</div>
      <div class="container">
         <span class="graphs">
             <div id="viz1" class="anomalies"></div>
         </span>
         <span class="explanation">
-            <p>However, the concept of a global average temperature is convenient for detecting and tracking changes in Earth's 
-            energy budget—how much sunlight Earth absorbs minus how much it radiates to space as heat—over time.</p>
-            
-            <p>To calculate a global average temperature, scientists begin with temperature measurements taken at locations 
-            around the globe. Because their goal is to track changes in temperature, measurements are converted from absolute
-            temperature readings to temperature anomalies—the difference between the observed temperature and the long-term 
-            average temperature for each location and date. Multiple independent research groups across the world perform their
-            own analysis of the surface temperature data, and they all show a similar upward trend.</p>
+            <p> The anomalies are less pronounced on ocean surfaces. The reason is the size and enourmous heat capacity of oceans. It
+                takes a lot of energy to raise the oceans' surface temperature even by a small amount. That's why even small increases
+                (like the 1 degree Celsius increase since the late 19th century) in the global average temperature of oceans is very
+                significant in terms of accumulated heat. 
+                
+            <p> And accumulated heat creates a cascanding effect (more on this later - this
+                cascading effect and the fact that we don't understand it fully is what should scare us).
+                Land surfaces warm a lot faster than most ocean areas. All this extra heat causes regional and seasonal temperature extrems,
+                with consequences like reducing snow cover and sea ice (which triggers other things - remember: cascading effect), intensifying 
+                rainfalls, changng habtat ranges, annd more.</p>
         </span>
     </div>
-    <!-- <div id="viz1"></div>-->
 </home>
 
 <script>
@@ -78,7 +87,7 @@ new roughViz.Bar({
     values: 'Value',
     color: 'coral',
     highlight: 'darkred',
-    width: window.innerWidth * 0.60 ,
+    width: window.innerWidth * 0.90 ,
     tooltipFontSize: '2rem',
     xAxisFontSize: '0rem',
     yAxisFontSize: '2rem',
@@ -87,18 +96,23 @@ new roughViz.Bar({
 
 new roughViz.Line({
     element: '#viz1',
-    data: 'https://raw.githubusercontent.com/jwilber/random_data/master/tweets.csv',
-    title: 'Line Chart',
-    // x: 'gdpPercap',
-    y1: 'favorites',
-    y2: 'tweets',
+    data: 'https://etejadag.github.io/global-warming/anomalies/data-land-and-ocean.csv',
+    y1: 'Land',
+    y2: 'Ocean',
+    xKey: 'Year',
     colorVar: 'continent',
     highlightLabel: 'country',
     highlight: 'red',
-    fillWeight: 2,
-    roughness: 3.5,
-    width: window.innerWidth / 1.2,
+    fillWeight: 1,
+    roughness: 1,
+    width: window.innerWidth * 0.90 ,
     height: 500,
+    strokeWidth: 1,
+    legendFontSize: '2rem',
+    legendPosition: 'left',
+    xAxisFontSize: '0rem',
+    yAxisFontSize: '2rem',
+    tooltipFontSize: '2rem',
   }
 );
 
