@@ -1,17 +1,32 @@
 <html>
 <head>
     <script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Gaegu' rel='stylesheet'>
     <style>
         .title {
             font-size: xx-large;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-align: center;
-        };
+            margin: 20px 0 20px 0;
+        }
         .graphs {
+            vertical-align: top;
             text-align: center;
-            width: 100%;
+            width: 70%;
+            display: inline-block;
         }
         .anomalies {
+            width: 100%;
+        }
+        .explanation {
+            padding: 20px;
+            vertical-align: top;
+            font-size: x-large;
+            font-family: 'Gaegu';
+            display: inline-block;
+            width: 20%;
+        }
+        .container {
             margin-left: auto;
             margin-right: auto;
             width: 90%;
@@ -21,8 +36,20 @@
 
 <home>
     <div class="title">Yearly surface temperature compared to the 20th-century average</div>
-    <div class="graphs">
-        <div id="viz0" class="anomalies"></div>
+    <div class="container">
+        <span class="graphs">
+            <div id="viz0" class="anomalies"></div>
+        </span>
+        <span class="explanation">
+            <p>However, the concept of a global average temperature is convenient for detecting and tracking changes in Earth's 
+            energy budget—how much sunlight Earth absorbs minus how much it radiates to space as heat—over time.</p>
+            
+            <p>To calculate a global average temperature, scientists begin with temperature measurements taken at locations 
+            around the globe. Because their goal is to track changes in temperature, measurements are converted from absolute
+            temperature readings to temperature anomalies—the difference between the observed temperature and the long-term 
+            average temperature for each location and date. Multiple independent research groups across the world perform their
+            own analysis of the surface temperature data, and they all show a similar upward trend.</p>
+        </span>
     </div>
     <!-- <div id="viz1"></div>-->
 </home>
@@ -36,7 +63,7 @@ new roughViz.Bar({
     values: 'Value',
     color: 'coral',
     highlight: 'darkred',
-    width: window.innerWidth * 0.90 ,
+    width: window.innerWidth * 0.60 ,
     tooltipFontSize: '2rem',
     xAxisFontSize: '0rem',
     yAxisFontSize: '2rem',
