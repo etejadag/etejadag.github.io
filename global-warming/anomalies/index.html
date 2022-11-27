@@ -86,11 +86,12 @@ new roughViz.Bar({
 });
 
 new roughViz.Line({
-    element: '#vis1',
+    element: '#viz1',
     data: 'https://raw.githubusercontent.com/jwilber/random_data/master/tweets.csv',
     title: 'Line Chart',
     // x: 'gdpPercap',
-    y: 'favorites',
+    y1: 'favorites',
+    y2: 'tweets',
     colorVar: 'continent',
     highlightLabel: 'country',
     highlight: 'red',
