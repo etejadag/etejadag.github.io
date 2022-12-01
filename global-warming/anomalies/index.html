@@ -60,7 +60,7 @@
     </div>
     
     <div class="title">Same data but comparing land and ocean. Shockingly, oceans are huge ... heat stores, and that's a problem</div>
-     <div class="container">
+    <div class="container">
         <span class="graphs">
             <div id="viz1" class="anomalies"></div>
         </span>
@@ -78,10 +78,12 @@
         </span>
     </div>
 
-<    <div class="title">Oh, this is all cyclic! It happened in the past ... except it didn't (though the cycles are real)</div>
-     <div class="container">
+    <div class="title">Oh, this is all cyclic! It happened in the past ... except it didn't (though the cycles are real)</div>
+    <div class="container">
         <span class="graphs">
             <div id="viz2" class="anomalies"></div>
+            <div id="viz4" class="anomalies"></div>
+            <div id="viz3" class="anomalies"></div>
         </span>
         <span class="explanation">
             <p> So, there are three time scales for cyclic climate variations: millenial, century-scale, and decadal (or less). 
@@ -176,7 +178,8 @@ new roughViz.Line({
 new roughViz.Line({
     element: '#viz2',
     data: 'https://etejadag.github.io/global-warming/anomalies/insolation.csv',
-    y1: '15NJul',
+    y1: 'insolation',
+    colors: ['orange'],
     xKey: 'Year',
     fillWeight: 1,
     roughness: 1,
@@ -186,6 +189,58 @@ new roughViz.Line({
     legend: false,
     xAxisFontSize: '0rem',
     yAxisFontSize: '2rem',
+    yLabel: 'Insolation (at 65oN)',
+    labelFontSize: '2rem',
+    tooltipFontSize: '2rem',
+    overlayStart1: '-335050',
+    overlayEnd1: '-325050',
+    overlayStart2: '-248000',
+    overlayEnd2: '-238000',
+    overlayColor: 'yellow',
+  }
+);
+
+new roughViz.Line({
+    element: '#viz4',
+    data: 'https://etejadag.github.io/global-warming/anomalies/insolation.csv',
+    y1: 'CO2',
+    xKey: 'Year',
+    colors: ['blue'],
+    fillWeight: 1,
+    roughness: 1,
+    width: window.innerWidth * 0.90 ,
+    height: 500,
+    strokeWidth: 1,
+    legend: false,
+    xAxisFontSize: '0rem',
+    yAxisFontSize: '2rem',
+    yLabel: 'Atmospheric CO2',
+    labelFontSize: '2rem',
+    tooltipFontSize: '2rem',
+    overlayStart1: '-335050',
+    overlayEnd1: '-325050',
+    overlayStart2: '-248000',
+    overlayEnd2: '-238000',
+    overlayColor: 'yellow',
+  }
+);
+
+new roughViz.Line({
+    element: '#viz3',
+    data: 'https://etejadag.github.io/global-warming/anomalies/insolation.csv',
+    y1: 'tempchange',
+    xKey: 'Year',
+    fillWeight: 1,
+    colors: ['black'],
+    roughness: 1,
+    width: window.innerWidth * 0.90 ,
+    height: 500,
+    strokeWidth: 1,
+    legend: false,
+    xAxisFontSize: '2rem',
+    yAxisFontSize: '2rem',
+    yLabel: 'temperature change (C)',
+    labelFontSize: '2rem',
     tooltipFontSize: '2rem',
     overlayStart1: '-335050',
     overlayEnd1: '-325050',
