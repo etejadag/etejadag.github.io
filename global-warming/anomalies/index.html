@@ -1,6 +1,7 @@
 <html>
 <head>
-    <script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>
+    <!--<script src="https://etejadag.github.io/global-warming/roughviz.min.js"></script>-->
+    <script src="../roughviz.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Gaegu' rel='stylesheet'>
     <style>
         .title {
@@ -159,9 +160,6 @@ new roughViz.Line({
     y1: 'Land',
     y2: 'Ocean',
     xKey: 'Year',
-    colorVar: 'continent',
-    highlightLabel: 'country',
-    highlight: 'red',
     fillWeight: 1,
     roughness: 1,
     width: window.innerWidth * 0.90 ,
@@ -172,6 +170,28 @@ new roughViz.Line({
     xAxisFontSize: '0rem',
     yAxisFontSize: '2rem',
     tooltipFontSize: '2rem',
+  }
+);
+
+new roughViz.Line({
+    element: '#viz2',
+    data: 'https://etejadag.github.io/global-warming/anomalies/insolation.csv',
+    y1: '15NJul',
+    xKey: 'Year',
+    fillWeight: 1,
+    roughness: 1,
+    width: window.innerWidth * 0.90 ,
+    height: 500,
+    strokeWidth: 1,
+    legend: false,
+    xAxisFontSize: '0rem',
+    yAxisFontSize: '2rem',
+    tooltipFontSize: '2rem',
+    overlayStart1: '-335050',
+    overlayEnd1: '-325050',
+    overlayStart2: '-248000',
+    overlayEnd2: '-238000',
+    overlayColor: 'yellow',
   }
 );
 
