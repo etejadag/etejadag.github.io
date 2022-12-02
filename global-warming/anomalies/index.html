@@ -119,6 +119,10 @@
                 global climate change are extremely rapid compared to past changes,
                 and may produce conditions that have not been anticipated.</p>
         </span>
+        <span class="graphs">
+            <span id="viz5" class="anomalies"></span>
+            <span id="viz6" class="anomalies"></span>
+        </span>
     </div>
 </home>
 
@@ -247,6 +251,59 @@ new roughViz.Line({
     overlayX: ['350', '300', '250', '200', '150', '100', '50', '0'],
     overlayXFontSize: '2rem',
     margin: { top: 5, right: 20, bottom: 150, left: 100 },
+  }
+);
+
+new roughViz.Line({
+    element: '#viz5',
+    data: 'https://etejadag.github.io/global-warming/anomalies/co2-long.csv',
+    y1: 'CO2',
+    xKey: 'Year',
+    fillWeight: 1,
+    colors: ['coral'],
+    roughness: 1,
+    width: window.innerWidth * 0.90 ,
+    height: 500,
+    strokeWidth: 1,
+    legend: false,
+    overlayStart1: '-40',
+    overlayEnd1: '10000',
+    overlayColor: 'yellow',
+    xAxisFontSize: '0rem',
+    yAxisFontSize: '2rem',
+    yLabel: 'Atmospheric CO2',
+    xLabel: 'years before present (in thousands)',
+    labelFontSize: '2rem',
+    tooltipFontSize: '2rem',
+    overlayX: ['800', '700', '600', '500', '400', '300', '200', '100', '0'],
+    overlayXFontSize: '2rem',
+    margin: { top: 5, right: 20, bottom: 150, left: 100 },
+  }
+);
+
+new roughViz.Line({
+    element: '#viz6',
+    data: 'https://etejadag.github.io/global-warming/anomalies/co2-short.csv',
+    y1: 'CO2',
+    xKey: 'Year',
+    fillWeight: 1,
+    colors: ['skyblue'],
+    roughness: 1,
+    width: window.innerWidth * 0.90 ,
+    height: 500,
+    strokeWidth: 1,
+    legend: false,
+    xAxisFontSize: '0rem',
+    yAxisFontSize: '2rem',
+    yLabel: 'Atmospheric CO2',
+    xLabel: 'year',
+    labelFontSize: '2rem',
+    tooltipFontSize: '2rem',
+    overlayX: ['0', '337', '1011', '1348', '1685', '2022'],
+    overlayXFontSize: '2rem',
+    margin: { top: 150, right: 20, bottom: 150, left: 100 },
+    title: 'the yellow area in the graph above, enlarged',
+    titleFontSize: '3rem'
   }
 );
 
